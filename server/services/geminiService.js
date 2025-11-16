@@ -1,8 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import { resumeMatchSchema } from "../schemas/geminiSchema.js";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
+const ai = new GoogleGenAI({ apiKey:"" });
 export default {
   analyze: async (pdfBuffer, jobDescription) => {
     const base64PDF = pdfBuffer.toString("base64");

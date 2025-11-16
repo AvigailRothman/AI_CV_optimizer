@@ -3,16 +3,19 @@ import cors from "cors";
 import dotenv from "dotenv";
 import uploadRoute from "./routes/uploadRoute.js";
 
-// dotenv.config();
+// console.log("ENV KEY: ", process.env.GEMINI_API_KEY);
+
+
+dotenv.config();
 import path from "path";
 import { fileURLToPath } from "url";
 
 // Path to root directory of project
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-// go 1 directory up → ../.env
-dotenv.config({ path: path.join(__dirname, "../.env") });
+// // go 1 directory up → ../.env
+// dotenv.config({ path: path.join(__dirname, "../.env") });
 
 const app = express();
 
