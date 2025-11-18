@@ -4,18 +4,12 @@ import ResultBox from "./components/ResultBox";
 import "./App.css";
 
 export default function App() {
-
-  // ⭐ הוספת state חדש ללודר ⭐
   const [isLoading, setIsLoading] = useState(false);
-
   const [result, setResult] = useState(null);
   const [stepMessage, setStepMessage] = useState("");
 
   const handleUpload = async (pdfFile, jobDesc) => {
-
-    // ⭐ מפעיל לודר ⭐
     setIsLoading(true);
-
     setResult(null);
     setStepMessage("📄 Step 1: Uploading your PDF…");
 
@@ -41,43 +35,36 @@ export default function App() {
       setStepMessage("❌ Error during processing: " + err.message);
 
     } finally {
-
-      // ⭐ מכבה לודר ⭐
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="app-container">
+    <div className="wrapper-card">   {/* ←← מסגרת כללית חדשה */}
 
       <h1>CV → Job Matcher</h1>
 
-      {/* כרטיס לטופס */}
-      <div className="card">
-        <UploadForm onUpload={handleUpload} />
-      </div>
+      {/* טופס */}
+      <UploadForm onUpload={handleUpload} />
 
-      {/* ⭐ מציג לודר בזמן טעינה ⭐ */}
+      {/* לודר */}
       {isLoading && (
-        <div className="card">
+        <>
           <div className="loader"></div>
           <div className="loading-text">Processing your CV… Please wait…</div>
-        </div>
+        </>
       )}
 
-      {/* כרטיס להודעות */}
+      {/* הודעות */}
       {stepMessage && !isLoading && (
-        <div className="card">
-          <p className="status">{stepMessage}</p>
-        </div>
+        <p className="status">{stepMessage}</p>
       )}
 
-      {/* כרטיס לתוצאה */}
+      {/* תוצאה */}
       {result && !isLoading && (
-        <div className="card">
-          <ResultBox result={result} />
-        </div>
+        <ResultBox result={result} />
       )}
+
     </div>
   );
 }

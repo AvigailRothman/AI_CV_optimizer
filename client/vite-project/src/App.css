@@ -1,15 +1,16 @@
 /* ===== עיצוב כללי ===== */
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;          /* מונע גלילה של העמוד כולו */
   background: linear-gradient(135deg, #dfe9f3, #ffffff);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   display: flex;
-  justify-content: center;   /* מרכוז אופקי */
-  align-items: center;       /* מרכוז אנכי */
-  padding: 40px 0;           /* כדי שלא יידבק לקצוות במסכים קטנים */
+  justify-content: center;
+  align-items: center;
 }
+
 
 
 /* ===== מיכל מרכזי ===== */
@@ -93,7 +94,7 @@ h1 {
   border-radius: 12px;
   cursor: pointer;
   transition: 0.2s;
-  
+  margin-top: 5px;
   width: 100%;
   max-width: 350px;
   margin: 0 auto;
@@ -180,3 +181,22 @@ h1 {
   color: #333;
   font-weight: 600;
 }
+/* ===== מסגרת כללית יפה לכל הקופסה ===== */
+.wrapper-card {
+  background: white;
+  padding: 30px 35px;        /* היה 50px – הקטנו כדי שלא יגלול */
+  border-radius: 18px;
+  border: 1px solid rgba(180, 180, 180, 0.45);   /* מסגרת דקה יפה */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);     /* צל עדין */
+  
+  width: 100%;
+  max-width: 650px;          /* הקטנו לרוחב קומפקטי */
+  max-height: 90vh;          /* מונע גלילה */
+  
+  display: flex;
+  flex-direction: column;
+  gap: 25px;                 /* היה 35px – מקטין גובה */
+  text-align: center;
+  overflow-y: auto;          /* אם יש מעט עודף – NOT גלילה בכל הדף אלא רק בתוך הקופסה */
+}
+
