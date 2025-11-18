@@ -1,0 +1,182 @@
+/* ===== עיצוב כללי ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  display: flex;
+  justify-content: center;   /* מרכוז אופקי */
+  align-items: center;       /* מרכוז אנכי */
+  padding: 40px 0;           /* כדי שלא יידבק לקצוות במסכים קטנים */
+}
+
+
+/* ===== מיכל מרכזי ===== */
+.app-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center; 
+}
+
+
+/* ===== כותרת ראשית ===== */
+h1 {
+  font-size: 2.4rem;
+  color: #1b1b1b;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+
+
+/* ===== כרטיסים ===== */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+
+/* ===== טופס העלאה ===== */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upload-form label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #333;
+  text-align: left;
+}
+
+.upload-form input[type="file"],
+.upload-form textarea {
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+.upload-form textarea {
+  height: 130px;
+  resize: vertical;
+}
+
+.upload-form input:focus,
+.upload-form textarea:focus {
+  border-color: #6a9bff;
+  outline: none;
+}
+
+
+/* ===== כפתורים ===== */
+.btn {
+  background: #4a73ff;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn:hover {
+  background: #335be8;
+  transform: translateY(-2px);
+}
+
+
+/* ===== תוצאות ===== */
+.result-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.result-box h2 {
+  font-size: 1.7rem;
+  color: #222;
+}
+
+.result-box p {
+  font-size: 1rem;
+  color: #444;
+}
+
+
+/* ===== כפתור הורדת PDF ===== */
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 14px 22px;
+  background: #00b37d;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: 0.2s ease;
+}
+
+.download-btn:hover {
+  background: #009564;
+  transform: translateY(-2px);
+}
+
+
+/* ===== הודעות סטטוס ===== */
+.status {
+  margin-top: 15px;
+  background: #eef2ff;
+  padding: 12px;
+  border-radius: 10px;
+  border-left: 4px solid #4a73ff;
+  font-size: 1rem;
+  color: #333;
+}
+
+
+/* ===== Loader ===== */
+.loader {
+  margin: 20px auto;
+  border: 6px solid #e3e3e3;
+  border-radius: 50%;
+  border-top: 6px solid #4a73ff;
+  width: 45px;
+  height: 45px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
