@@ -3,10 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import uploadRoute from "./routes/uploadRoute.js";
 
-// console.log("ENV KEY: ", process.env.GEMINI_API_KEY);
 
 
 dotenv.config();
+console.log(">>> Loaded Gemini Key:", process.env.GEMINI_API_KEY);
+
 import path from "path";
 import { fileURLToPath } from "url";
 

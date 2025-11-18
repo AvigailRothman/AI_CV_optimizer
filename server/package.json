@@ -11,11 +11,15 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@google/genai": "^1.29.1",
+    "@google/generative-ai": "^0.24.1",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "form-data": "^4.0.5",
     "multer": "^2.0.2",
-    "pdf-lib": "^1.17.1"
+    "pdf-lib": "^1.17.1",
+    "pdf-poppler": "^0.2.3"
   }
 }
