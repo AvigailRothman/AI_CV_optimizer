@@ -14,34 +14,37 @@ export default function App() {
     setStepMessage("📄 Step 1: Uploading your PDF…");
 
     const formData = new FormData();
-    formData.append("pdf", pdfFile);
+    // 👇 חייב להתאים ל-upload.single("cv") בשרת
+    formData.append("cv", pdfFile);
+    // 👇 חייב להתאים ל-req.body.jobDescription
     formData.append("jobDescription", jobDesc);
 
     try {
-      const response = await fetch("http://localhost:5000/upload", {
+      // 👇 הנתיב צריך להתאים לשרת שלך
+      // אם השרת מדפיס "Server is running on http://localhost:3001" – תשאירי 3001
+      const response = await fetch("http://localhost:3001/api/optimize-for-job", {
         method: "POST",
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error("Server error – something went wrong.");
+        const text = await response.text();
+        throw new Error(`Server error (${response.status}): ${text}`);
       }
 
       const data = await response.json();
+      // data = { analysis: {...}, pdfFilename: "optimized-....pdf" }
       setStepMessage("🤖 Step 2: Processing finished!");
       setResult(data);
-
     } catch (err) {
       setStepMessage("❌ Error during processing: " + err.message);
-
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="wrapper-card">   {/* ←← מסגרת כללית חדשה */}
-
+    <div className="wrapper-card">
       <h1>CV → Job Matcher</h1>
 
       {/* טופס */}
@@ -64,7 +67,6 @@ export default function App() {
       {result && !isLoading && (
         <ResultBox result={result} />
       )}
-
     </div>
   );
 }
